@@ -1,3 +1,6 @@
 [flake8]
 per-file-ignores =
-    ratenyu/*: E501
+    swe1-app/*: E501
+exclude = .git,__pycache__,.venv, swe-1-venv, polls/migrations
+max-complexity = 10
+max-line-length= 88
