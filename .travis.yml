@@ -1,0 +1,25 @@
+language: python
+python:
+  - "3.8"
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - black ./
+  - flake8 ./
+  - coverage run manage.py test
+
+after_success:
+  coveralls
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: "us-east-1"
+  app: "[APP NAME]"
+  env: "[ENV NAME]"
+  bucket_name: "[BUCKET NAME]"
+  on:
+    branch: [BRANCH]
