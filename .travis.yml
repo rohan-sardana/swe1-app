@@ -20,6 +20,6 @@ deploy:
   region: "us-east-1"
   app: "swe1-myapp"
   env: "swe1-env"
-  bucket_name: "elasticbeanstalk-us-east-1-220343102758"
+  bucket_name: $AWS_BUCKET_NAME
   on:
     branch: main
